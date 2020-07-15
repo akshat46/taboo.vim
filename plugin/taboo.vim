@@ -34,6 +34,9 @@ let g:taboo_tab_format =
 let g:taboo_renamed_tab_format =
     \ get(g:, "taboo_renamed_tab_format", " [%l]%m ")
 
+let g:taboo_modified_tab_active_flag =
+    \ get(g:, "taboo_modified_tab_active_flag", "*")
+
 let g:taboo_modified_tab_flag =
     \ get(g:, "taboo_modified_tab_flag", "*")
 
@@ -210,11 +213,12 @@ endfu
 
 fu s:modflag(tabnr)
     let flag = g:taboo_modified_tab_flag
+    let active_flag = g:taboo_modified_tab_active_flag
     for buf in tabpagebuflist(a:tabnr)
         if getbufvar(buf, "&mod")
             if g:taboo_tabline
                 if a:tabnr == tabpagenr()
-                    return "%#TabModifiedSelected#" . flag . "%#TabLineSel#"
+                    return "%#TabModifiedSelected#" . active_flag . "%#TabLineSel#"
                 else
                     return "%#TabModified#" . flag . "%#TabLine#"
                 endif

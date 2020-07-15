@@ -63,6 +63,12 @@ This option controls how the modified flag looks like.
 
 Default: `"*"`
 
+**g:taboo\_modified\_tab\_active\_flag**
+
+This option controls how the modified flag for active tab looks like.
+
+Default: `"*"`
+
 **g:taboo\_tabline**
 
 Turn off this option and Taboo won't generate the tabline. This may be useful if you want to do it yourself with the help of the functions `TabooTabTitle(..)` or `TabooTabName(..)`.
