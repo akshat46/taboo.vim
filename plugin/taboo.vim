@@ -46,6 +46,18 @@ let g:taboo_close_tab_label =
 let g:taboo_unnamed_tab_label =
     \ get(g:, "taboo_unnamed_tab_label", "[no name]")
 
+let g:taboo_tab_prefix =
+    \ get(g:, "taboo_tab_prefix", "")
+
+let g:taboo_tab_suffix =
+    \ get(g:, "taboo_tab_suffix", "")
+
+let g:taboo_tab_active_prefix =
+    \ get(g:, "taboo_tab_active_prefix", "")
+
+let g:taboo_tab_active_suffix =
+    \ get(g:, "taboo_tab_active_suffix", "")
+
 " Functions
 " =============================================================================
 
@@ -53,11 +65,22 @@ let g:taboo_unnamed_tab_label =
 fu TabooTabline()
     let tabline = ''
     for i in s:tabs()
-        let tabline .= i == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
+        if (i == tabpagenr())
+            let tabline .= g:taboo_tab_active_prefix
+            let tabline .= '%#TabLineSel#'
+        else
+            let tabline .= g:taboo_tab_prefix
+            let tabline .= '%#TabLine#'
+        endif
         let title = s:gettabvar(i, "taboo_tab_name")
         let fmt = empty(title) ? g:taboo_tab_format : g:taboo_renamed_tab_format
         let tabline .= '%' . i . 'T'
         let tabline .= s:expand(i, fmt)
+        if (i == tabpagenr())
+            let tabline .= g:taboo_tab_active_suffix
+        else
+            let tabline .= g:taboo_tab_suffix
+        endif
     endfor
     let tabline .= '%#TabLineFill#%T'
     let tabline .= '%=%#TabLine#%999X' . g:taboo_close_tabs_label

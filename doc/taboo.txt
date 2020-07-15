@@ -143,6 +143,33 @@ buffer.
 
 Default: "[no name]"
 
+------------------------------------------------------------------------------
+                                                   *'taboo_tab_prefix'*
+
+Prefix to be added before each tab.
+
+Default: ""
+
+------------------------------------------------------------------------------
+                                                   *'taboo_tab_active_prefix'*
+
+Prefix to be added before active tab.
+
+Default: ""
+
+------------------------------------------------------------------------------
+                                                   *'taboo_tab_suffix'*
+
+Suffix to be added after each tab.
+
+Default: ""
+
+------------------------------------------------------------------------------
+                                                   *'taboo_tab_active_suffix'*
+
+Suffix to be added after active tab.
+
+Default: ""
 
 ==============================================================================
 5. Public interface                                   *taboo-public-interface*
