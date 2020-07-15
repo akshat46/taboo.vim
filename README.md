@@ -81,6 +81,18 @@ This option controls how the close button looks like.
 
 Default: `"x"`
 
+**g:taboo\_tab\_prefix, g:taboo\_tab\_suffix**
+
+Prefix/Suffix to be added before/after each tab.
+
+Default: `""`
+
+**g:taboo\_tab\_active\_prefix, g:taboo\_tab\_active\_suffix**
+
+Prefix/Suffix to be added before/after active tab.
+
+Default: `""`
+
 ### Public interface
 
 Taboo provides a couple of public functions that may be used by third party plugins:
